@@ -27,7 +27,7 @@ def iscore(p):							# is 'p' core ? true : false
 		if dis(p,point) <= radius:
 			count+=1
 			reachable_from_p.append(point)
-	directly_reachable[p]=reachable_from_p			# adding points to global directly reachabkle set
+	directly_reachable[p]=reachable_from_p			# adding points to global directly_reachable set
 	return count>=minpts
 
 minpts=input('minPts:')
