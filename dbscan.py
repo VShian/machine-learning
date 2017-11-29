@@ -9,25 +9,25 @@ import matplotlib.cm as cm
 
 points=list()
 
-f=open('dataset.txt','r')								# get
-for line in f:											# the
-	x,y=line.split()									# dataset
-	points.append((int(x),int(y)))						# from
-f.close()												# file
+f=open('dataset.txt','r')					# get
+for line in f:							# the
+	x,y=line.split()					# dataset
+	points.append((int(x),int(y)))				# from
+f.close()							# file
 
-def dis(a,b):											# L2 distance function
+def dis(a,b):							# L2 distance function
 	x1,y1=a
 	x2,y2=b
 	return math.sqrt((x2-x1)**2+(y2-y1)**2)
 
-def iscore(p):											# is 'p' core ? true : false
+def iscore(p):							# is 'p' core ? true : false
 	count=0												
-	reachable_from_p=list()								# set of directly reachable points from point 'p'
+	reachable_from_p=list()					# set of directly reachable points from point 'p'
 	for point in points:
 		if dis(p,point) <= radius:
 			count+=1
 			reachable_from_p.append(point)
-	directly_reachable[p]=reachable_from_p				# adding points to global directly reachabkle set
+	directly_reachable[p]=reachable_from_p			# adding points to global directly reachabkle set
 	return count>=minpts
 
 minpts=input('minPts:')
@@ -68,12 +68,12 @@ while len(corepoints)!=0:
 # print len(clusters)
 
 
-for cluster in clusters:									# coloring the clusters
+for cluster in clusters:						# coloring the clusters
 	x,y=zip(*cluster)
 	plt.scatter(x,y)
 
-if len(noise)>0:											# coloring the noise points
+if len(noise)>0:							# coloring the noise points
 	x,y=zip(*noise)
 	plt.scatter(x,y,color='gray')
 
-plt.show()													# display the plotted graph
+plt.show()								# display the plotted graph
