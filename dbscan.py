@@ -9,7 +9,7 @@ import matplotlib.cm as cm
 
 points=list()
 
-f=open('dataset.txt','r')					# get
+f=open('dbscan_dataset.txt','r')					# get
 for line in f:							# the
 	x,y=line.split()					# dataset
 	points.append((int(x),int(y)))				# from
